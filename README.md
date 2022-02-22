@@ -19,3 +19,18 @@ Therefore the following restrictions apply:
   2. Provide tests for the functionality described in 1)
   3. Provide the source code on any GIT repo worldwide (GITLAB, GITHUB, whatever you prefer and/or use)
   4. No other restrictions apply
+
+Examples:
+
+    Adding a question:
+        What is Peters favorite food? “Pizza” “Spaghetti” “Ice cream”
+    Asking a question which is in the system:
+        What is Peters favorite food?
+            Answers will be
+                Pizza
+                Spaghetti
+                Ice cream
+    Asking a question which is not in the system:
+        When is Peters birthday?
+            Answer will be
+                the answer to life, universe and everything is 42
