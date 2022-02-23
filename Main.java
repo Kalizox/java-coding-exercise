@@ -205,7 +205,7 @@ public class Main {
 			return -1;
 		}
 		
-		if(p_str.length() > 255) {	// If answer length is > 255
+		if(p_str.length() > 257) {	// If answer length is > 255
 			System.out.println("Answer(s) length is maximum 255 chars !");
 			return -1;
 		}
