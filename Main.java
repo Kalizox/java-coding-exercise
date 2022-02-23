@@ -198,8 +198,14 @@ public class Main {
 	 * 
 	 * @return -1 if failed, 0 otherwise
 	 */
-	static int checkAnswer(String p_str, int p_pos) {
-		if((p_str.length() - p_pos) > 255) {	// If answer length is > 255
+	static int checkAnswer(String p_str) {
+		
+		if(p_str.indexOf('"') != 0 && p_str.lastIndexOf('"') != p_str.length()-1) {	// If answer is not between ""
+			System.out.println("Answer should be between \"\"");
+			return -1;
+		}
+		
+		if(p_str.length() > 255) {	// If answer length is > 255
 			System.out.println("Answer(s) length is maximum 255 chars !");
 			return -1;
 		}
@@ -264,21 +270,33 @@ public class Main {
 			return -1;
 		}
 		
-		res = checkAnswer(input, posQuestion);
+		String str = new String();
 		
-		if(res == 0) {
-			String tmp = new String();
-			
-			if(input.indexOf(posQuestion+1) == ' ') {
-				tmp = input.substring(posQuestion+2);
-			}
-			else {
-				tmp = input.substring(posQuestion+1);
-			}
-			answer = tmp.split(" ");
+		if(input.charAt(posQuestion + 1) == ' ') {
+			str = input.substring(posQuestion + 2);
 		}
 		else {
-			return -1;
+			str = input.substring(posQuestion + 1);
+		}
+		
+		String[] tmp = str.split(" ");
+
+		for(int i = 0; i < tmp.length; i++) {
+			
+			res = checkAnswer(tmp[i]);
+			
+			if(res == 0) {
+				tmp[i] = tmp[i].substring(1);
+				tmp[i] = tmp[i].substring(0, tmp[i].length()-1);
+				
+				str2.add(tmp[i]);
+			}
+		}
+		
+		String[] answer = new String[str2.size()];
+		
+		for(int i = 0; i < str2.size(); i++) {
+			answer[i] = str2.get(i);
 		}
 		
 		saveFile("questions.txt", question);
