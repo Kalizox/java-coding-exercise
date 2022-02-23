@@ -92,16 +92,14 @@ class Main_test {
 	
 	@Test
 	public void testCheckAnswer() {
-		String test_1 = "test string ?", test_2 = "test string ? answer_1", test_3 = "test string ? answer_1 answer_2";
-		Boolean b = true;
+		String test_1 = "\"test answer_1\"", test_2 = "\"test answer_1\"", test_3 = "answer_1 answer_2";
+
 		for(int i = 0; i < 260 ; i++) {
 			test_1 = test_1.concat("a");
 		}
 		
-		int pos = test_1.indexOf('?');
-		
-		assertEquals(-1, Main.checkAnswer(test_1, pos));
-		assertEquals(0, Main.checkAnswer(test_2, pos));
-		assertEquals(0, Main.checkAnswer(test_3, pos));
+		assertEquals(-1, Main.checkAnswer(test_1));
+		assertEquals(0, Main.checkAnswer(test_2));
+		assertEquals(-1, Main.checkAnswer(test_3));
 	}
 }
