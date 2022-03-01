@@ -249,7 +249,8 @@ public class Main {
 	static int addQuestion() {
 		Scanner sc = new Scanner(System.in);
 		String input = new String();
-		String[] question = new String[255], answer = new String[255];
+		String[] question = new String[255];
+		ArrayList<String> str2 = new ArrayList<String>();
 		
 		try {
 			System.out.println("Question must finish by '?' and must have at least one answer");
