@@ -1,4 +1,4 @@
-package cgm;
+package at.cgm.test;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
